@@ -17,6 +17,7 @@ Costola, M., Iacopini, M., & Wichers, C. (2025). _Bayesian SAR model with stocha
 2. main_example.R
    - Main script file to be run in order to estimate the model 
 
+&nbsp;
 
 ### List of auxiliary files 
 
