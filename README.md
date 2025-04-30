@@ -2,7 +2,7 @@
 
 This README provides instructions on how to run the Bayesian SAR model with stochastic volatility and multiple time-varying weights using an example dataset.
 
------------------------------------------------------
+
 Reference:
 -----------------------------------------------------
 
