@@ -47,9 +47,3 @@ Costola, M., Iacopini, M., & Wichers, C. (2025). _Bayesian SAR model with stocha
 
 9. uni.slice.R
    - Implements a univariate slice sampling algorithm.
-
------------------------------------------------------
-Reference:
------------------------------------------------------
-
-Costola, M., Iacopini, M., & Wichers, C. (2025). Bayesian SAR model with stochastic volatility and multiple time-varying weights. Journal of Financial Econometrics (23):3, nbae035 (https://doi.org/10.1093/jjfinec/nbae035)
