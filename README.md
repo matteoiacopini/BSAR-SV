@@ -9,7 +9,7 @@ Costola, M., Iacopini, M., & Wichers, C. (2025). Bayesian SAR model with stochas
 
 --
 File Descriptions:
--
+-------------------------------------------------
 
 1. ExampleData.RData
    - A synthetic dataset 
