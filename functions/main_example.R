@@ -63,3 +63,28 @@ res = gibbs_sv(nsave,nburn,nshow, ft= data_sarsv$ft, nu, rho_params, y= data_sar
 
 beep(1, expr = cat("%---%---%---%---%---%---%\n%   MCMC run finished   %\n%---%---%---%---%---%---%"))
 
+
+
+######## Direct, Indirect effects ########
+nn   = dim(data_sarsv$yt)[2] 
+In   = diag(nn)
+iota = matrix(1, nn,1)
+direct.store   = array(NA, c(nsave, T,nn))
+indirect.store = array(NA, c(nsave, T,nn))
+avg.direct.store   = array(NA, c(nsave, T))
+avg.indirect.store = array(NA, c(nsave, T))
+S0dy.store = array(NA, c(nsave, T))
+for (mm in 1:nsave){
+   for (t in 1:T){
+      Wt.star = (delta.store[1]*data_sarsv$net1_norm[[t]] + delta.store[2]*data_sarsv$net2_norm[[t]])
+      rrr = rho.store[mm,]
+      rrr[rrr==1] = 0.99
+      Vt = solve(In - diag(rrr) %*% Wt.star)
+      Vtd = diag(diag(Vt))
+      S0dy.store[mm,t] = sum(Vt^2-diag(diag(Vt^2))) / sum(diag(tcrossprod(Vt)))
+      direct.store[mm,t,]   = crossprod(iota, Vtd)
+      indirect.store[mm,t,] = crossprod(iota, Vt-Vtd)
+      avg.direct.store[mm,t]   = (crossprod(iota, Vtd) %*% iota) / nn
+      avg.indirect.store[mm,t] = (crossprod(iota, Vt-Vtd) %*% iota) / nn
+   }
+}
