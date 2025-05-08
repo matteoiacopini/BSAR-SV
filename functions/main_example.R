@@ -76,7 +76,7 @@ avg.indirect.store = array(NA, c(nsave, T))
 S0dy.store = array(NA, c(nsave, T))
 for (mm in 1:nsave){
    for (t in 1:T){
-      Wt.star = (delta.store[1]*data_sarsv$net1_norm[[t]] + delta.store[2]*data_sarsv$net2_norm[[t]])
+      Wt.star = (res$delta.store[1]*data_sarsv$net1_norm[[t]] + res$delta.store[2]*data_sarsv$net2_norm[[t]])
       rrr = rho.store[mm,]
       rrr[rrr==1] = 0.99
       Vt = solve(In - diag(rrr) %*% Wt.star)
